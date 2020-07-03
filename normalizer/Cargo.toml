@@ -1,0 +1,25 @@
+[package]
+name = "normalizer"
+version = "1.0.0"
+authors = ["Alex"]
+edition = "2018"
+license = "MIT"
+
+[profile.release]
+lto = true
+codegen-units = 1
+incremental = false
+
+[profile.dev.package."*"]
+opt-level = 2
+
+[[bin]]
+name = "normalizer"
+path = "src/main.rs"
+
+[dependencies]
+image = "0.23.6"
+kamadak-exif = "0.5.1"
+
+[dependencies.async-std]
+version = "1.6.0"
