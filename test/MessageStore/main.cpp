@@ -2,12 +2,11 @@
 
 using namespace message_store;
 
-int main()
-{
+int main() {
   MessageStore store;
 
-  while (ProcessMessaging(store))
-  { }
+  while (ProcessMessaging(store)) {
+  }
 
   return 0;
 }
