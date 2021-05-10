@@ -159,3 +159,38 @@ int main() {
 
   return 0;
 }
+
+//.1
+int solution(vector<int> &A) {
+    const auto test = [&](bool expected)
+    {
+        int flips = 0;
+        for (size_t i = 0; i < A.size(); ++i)
+        {
+            flips += A[i] != expected;
+            expected = !expected;
+        }
+        return flips;
+    };
+
+    return std::min(test(0), test(1));
+}
+
+
+//.2
+int minCost(string S, vector<int>& C) {
+    int min_cost = 0;
+    for(size_t i=0, j=1; j < S.size(); ++j) {
+        if (S[j] == S[i]) {
+            if (C[j] < C[i]) {
+                min_cost += C[j];
+                continue;
+            }
+            min_cost += C[i];
+        }
+
+        i = j;
+    }
+
+    return min_cost;
+}
